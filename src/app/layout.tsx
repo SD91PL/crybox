@@ -14,9 +14,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<StoreProvider>
-			<html lang='en'>
+			<html lang='en' className='scroll-smooth'>
 				<body
-					className={`font-sans antialiased`}>
+					className='font-sans antialiased'>
 					{children}
 				</body>
 			</html>
