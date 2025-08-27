@@ -54,3 +54,29 @@ body {
 	color: var(--foreground);
 	font-family: var(--font-sans);
 }
+
+/* Animations */
+
+.fade-in-out {
+	animation: fade-in-out 6.6s linear infinite both;
+}
+@keyframes fade-in-out {
+	0% {
+		opacity: 0;
+	}
+	30% {
+		opacity: 0;
+	}
+	40% {
+		opacity: 1;
+	}
+	80% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
