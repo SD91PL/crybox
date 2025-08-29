@@ -2,7 +2,9 @@ import Image from 'next/image'
 
 export default function Download() {
 	return (
-		<section id='download' className='flex-1 h-dvh flex flex-col justify-center items-center bg-white'>
+		<section
+			id='download'
+			className='flex-1 h-dvh xl:sticky xl:top-0 flex flex-col justify-center items-center bg-white'>
 			<div className='max-w-[23.2rem]'>
 				<Image
 					src='/img/download/download.png'
