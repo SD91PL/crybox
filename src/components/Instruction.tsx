@@ -184,7 +184,7 @@ export default function Instruction() {
 					<P>
 						Use an editor like <strong>VSCode</strong> with{' '}
 						<strong>Find & Replace (Ctrl + H)</strong> to quickly update all
-						version values. Once done, save and reapply your custom
+						version values. Once done, save and reapply your custom{' '}
 						<strong>actionmaps.xml</strong>.
 					</P>
 				</div>
