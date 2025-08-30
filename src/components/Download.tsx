@@ -8,7 +8,7 @@ export default function Download() {
 			<div className='max-w-[23.2rem]'>
 				<Image
 					src='/img/download/download.png'
-					alt='controller layout'
+					alt='Download Crybox'
 					width={371}
 					height={99}
 				/>
