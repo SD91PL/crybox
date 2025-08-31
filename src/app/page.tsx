@@ -5,6 +5,7 @@ import Download from '@/components/Download'
 import Instruction from '@/components/Instruction'
 import OtherMods from '@/components/OtherMods'
 import OtherModsBg from '@/components/OtherModsBg'
+import Footer from '@/components/Footer'
 
 export default function Home() {
 	return (
@@ -21,6 +22,7 @@ export default function Home() {
 					<OtherModsBg />
 				</Columns>
 			</main>
+			<Footer/>
 		</>
 	)
 }
