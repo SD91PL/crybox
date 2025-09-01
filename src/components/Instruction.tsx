@@ -11,7 +11,7 @@ export default function Instruction() {
 	return (
 		<section
 			id='insctruction'
-			className='flex-1 flex flex-col gap-5 px-2.5 py-5 bg-white'>
+			className='flex-1 flex flex-col gap-5 px-2.5 py-5'>
 			<Section>
 				<H1>
 					Modification Improving Xbox Controller Support for Crysis 1 and Crysis

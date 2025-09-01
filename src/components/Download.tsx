@@ -4,8 +4,8 @@ export default function Download() {
 	return (
 		<section
 			id='download'
-			className='flex-1 h-dvh xl:sticky xl:top-0 flex flex-col justify-center items-center bg-white'>
-			<div className='max-w-[23.2rem]'>
+			className='flex-1 h-dvh xl:sticky xl:top-0 flex flex-col justify-center items-center'>
+			<div className='max-w-[23.2rem] mt-10 xl:mt-0'>
 				<Image
 					src='/img/download/download.png'
 					alt='Download Crybox'

@@ -10,7 +10,7 @@ export default function OtherMods() {
 	return (
 		<section
 			id='otherMods'
-			className='order-2 xl:order-1 flex-1 flex flex-col gap-5 px-2.5 py-5 bg-white'>
+			className='order-2 xl:order-1 flex-1 flex flex-col gap-5 px-2.5 py-5'>
 			<Section>
 				<H1>Other Modifications</H1>
 				<P>
@@ -34,10 +34,23 @@ export default function OtherMods() {
 						</a>
 					</P>
 					<P>Installation path:</P>
-					<Path>F:\Program Files (x86)\GOG Galaxy\Games\Crysis\Mods\CrysisWarheadSuitvoice</Path>
-					<P>After installation, it&apos;s recommended to change the desktop shortcut target to:</P>
-					<Path>&quot;F:\Program Files (x86)\GOG Galaxy\Games\Crysis\Bin64\Crysis.exe&quot; -mod CrysisWarheadSuitvoice</Path>
-					<P>This will launch the game directly with the mod enabled in 64-bit mode.</P>
+					<Path>
+						F:\Program Files (x86)\GOG
+						Galaxy\Games\Crysis\Mods\CrysisWarheadSuitvoice
+					</Path>
+					<P>
+						After installation, it&apos;s recommended to change the desktop
+						shortcut target to:
+					</P>
+					<Path>
+						&quot;F:\Program Files (x86)\GOG
+						Galaxy\Games\Crysis\Bin64\Crysis.exe&quot; -mod
+						CrysisWarheadSuitvoice
+					</Path>
+					<P>
+						This will launch the game directly with the mod enabled in 64-bit
+						mode.
+					</P>
 				</div>
 			</Section>
 		</section>

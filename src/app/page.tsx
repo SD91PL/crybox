@@ -12,7 +12,7 @@ export default function Home() {
 		<>
 			<Header />
 			<Mapping />
-			<main className='container overflow-x-hidden xl:overflow-visible bg-[#ff9191]'>
+			<main className='container overflow-x-hidden xl:overflow-visible'>
 				<Columns>
 					<Download />
 					<Instruction />
@@ -22,7 +22,7 @@ export default function Home() {
 					<OtherModsBg />
 				</Columns>
 			</main>
-			<Footer/>
+			<Footer />
 		</>
 	)
 }
