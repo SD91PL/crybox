@@ -19,7 +19,7 @@ export default function Footer() {
 						<img
 							src='/img/footer/github.svg'
 							alt='github profile'
-							className={`${iconStyle}`}
+							className={`${iconStyle} min-w-9 min-h-9`}
 						/>
 					</a>
 					<a
@@ -29,7 +29,7 @@ export default function Footer() {
 						<img
 							src='/img/footer/linkedin.svg'
 							alt='linkedin profile'
-							className={`${iconStyle}`}
+							className={`${iconStyle} min-w-7.5 min-h-7.5`}
 						/>
 					</a>
 					<a
@@ -39,7 +39,7 @@ export default function Footer() {
 						<img
 							src='/img/footer/discord.svg'
 							alt='discord profile'
-							className={`${iconStyle}`}
+							className={`${iconStyle} min-w-9 min-h-9`}
 						/>
 					</a>
 				</div>
