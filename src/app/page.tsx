@@ -6,10 +6,12 @@ import Instruction from '@/components/Instruction'
 import OtherMods from '@/components/OtherMods'
 import OtherModsBg from '@/components/OtherModsBg'
 import Footer from '@/components/Footer'
+import DarkModeToggle from '@/components/DarkModeToggle'
 
 export default function Home() {
 	return (
 		<>
+			<DarkModeToggle />
 			<Header />
 			<Mapping />
 			<main className='container overflow-x-hidden xl:overflow-visible'>

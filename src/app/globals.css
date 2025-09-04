@@ -26,6 +26,11 @@
 :root {
 	--background: #ffffff;
 	--foreground: #171717;
+	transition: filter 0.3s;
+}
+
+:root.dark {
+	filter: invert(1);
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -78,5 +83,19 @@ body {
 	}
 	100% {
 		opacity: 0;
+	}
+}
+
+.fade-in-right {
+	animation: fade-in-right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+@keyframes fade-in-right {
+	0% {
+		transform: translateX(1rem);
+		opacity: 0;
+	}
+	100% {
+		transform: translateX(0);
+		opacity: 1;
 	}
 }
