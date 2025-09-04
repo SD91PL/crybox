@@ -91,7 +91,7 @@ body {
 }
 @keyframes fade-in-right {
 	0% {
-		transform: translateX(1rem);
+		transform: translateX(0.6rem);
 		opacity: 0;
 	}
 	100% {
