@@ -7,10 +7,12 @@ import OtherMods from '@/components/OtherMods'
 import OtherModsBg from '@/components/OtherModsBg'
 import Footer from '@/components/Footer'
 import DarkModeToggle from '@/components/DarkModeToggle'
+import Info from '@/components/Info'
 
 export default function Home() {
 	return (
 		<>
+			<Info />
 			<DarkModeToggle />
 			<Header />
 			<Mapping />

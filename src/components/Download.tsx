@@ -13,7 +13,10 @@ export default function Download() {
 					height={99}
 				/>
 				<p className='text-right text-xs text-[#767676] px-0.5 pt-2.5'>
-					Downloaded TEST times
+					Total Downloads: TEST
+				</p>
+				<p className='text-right text-xs text-[#767676] px-0.5 pt-2.5'>
+					Download will be available once the backend is ready.
 				</p>
 			</div>
 		</section>
