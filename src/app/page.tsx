@@ -12,6 +12,7 @@ export default function Home() {
 	return (
 		<>
 			<Header />
+			<DarkModeToggle />
 			<Mapping />
 			<main className='container overflow-x-hidden xl:overflow-visible'>
 				<Columns>
@@ -24,7 +25,6 @@ export default function Home() {
 				</Columns>
 			</main>
 			<Footer />
-			<DarkModeToggle />
 		</>
 	)
 }
