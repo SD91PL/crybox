@@ -27,7 +27,7 @@ export default function DarkModeToggle() {
 		<button
 			onClick={() => dispatch(toggleTheme())}
 			className='absolute top-3 right-3 min-[1640px]:fixed xl:top-5 xl:right-5 fade-in-right z-50'>
-			<div className='p-1.5 bg-gray-200 dark:bg-gray-800 text-xl grayscale invert -skew-x-10'>
+			<div className='p-1.5 bg-gray-200 dark:bg-gray-800 grayscale invert -skew-x-10'>
 				<div className='skew-x-10 text-sm'>
 					{theme === 'dark' ? '☀️' : '🌙'}
 				</div>
