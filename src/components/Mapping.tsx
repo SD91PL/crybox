@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import H1 from '@/UI/H1'
 
 export default function Mapping() {
@@ -8,19 +9,41 @@ export default function Mapping() {
 			className='container flex flex-col justify-center items-center'>
 			<div className='relative xl:hidden'>
 				<H1 center>Controller Layout</H1>
-				<Image
-					src='/img/mapping/controller_layout.png'
-					alt='controller layout'
-					width={1440}
-					height={1080}
-				/>
+				<div className='relative'>
+					<Image
+						src='/img/mapping/controller_layout.png'
+						alt='controller layout'
+						width={1440}
+						height={1080}
+					/>
+					<Link href='/controller-layout'>
+						<Image
+							src='/img/ui/zoom/zoom_in.png'
+							alt='zoom in controller layout'
+							width={48}
+							height={48}
+							className='absolute bottom-2 right-4 min-w-12 min-h-12'
+						/>
+					</Link>
+				</div>
 				<H1 center>Alternative Layout</H1>
-				<Image
-					src='/img/mapping/alternative_layout.png'
-					alt='alternative layout'
-					width={1440}
-					height={1080}
-				/>
+				<div className='relative'>
+					<Image
+						src='/img/mapping/alternative_layout.png'
+						alt='alternative layout'
+						width={1440}
+						height={1080}
+					/>
+					<Link href='/alternative-layout'>
+						<Image
+							src='/img/ui/zoom/zoom_in.png'
+							alt='zoom in alternative layout'
+							width={48}
+							height={48}
+							className='absolute bottom-2 right-4 min-w-12 min-h-12'
+						/>
+					</Link>
+				</div>
 			</div>
 			<div className='relative hidden xl:block max-h-dvh'>
 				<Image
