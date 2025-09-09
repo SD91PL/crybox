@@ -8,10 +8,10 @@ import { toggleTheme } from '@/store/features/themeSlice'
 export default function DarkModeToggle() {
 	const dispatch = useDispatch<AppDispatch>()
 	const theme = useSelector((state: RootState) => state.theme.mode)
-	const [mounted, setMounted] = useState(false)
+	const [hydrated, setHydrated] = useState(false)
 
 	useEffect(() => {
-		setMounted(true)
+		setHydrated(true)
 	}, [])
 
 	useEffect(() => {
@@ -19,17 +19,18 @@ export default function DarkModeToggle() {
 		root.classList.toggle('dark', theme === 'dark')
 	}, [theme])
 
-	if (!mounted) {
-		return null
-	}
-
 	return (
 		<button
 			onClick={() => dispatch(toggleTheme())}
+			aria-label={
+				hydrated && theme === 'dark'
+					? 'Switch to light mode'
+					: 'Switch to dark mode'
+			}
 			className='absolute top-3 right-3 min-[1640px]:fixed xl:top-5 xl:right-5 fade-in-right z-50'>
 			<div className='p-1.5 bg-gray-200 dark:bg-gray-800 grayscale invert -skew-x-10'>
 				<div className='skew-x-10 text-sm'>
-					{theme === 'dark' ? '☀️' : '🌙'}
+					{hydrated ? (theme === 'dark' ? '☀️' : '🌙') : '🌙'}
 				</div>
 			</div>
 		</button>

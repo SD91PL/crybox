@@ -10,7 +10,8 @@ export default function Header() {
 				alt='Crybox - Maximum Control'
 				fill
 				priority
-				className='object-contain fade-in-top'
+				sizes='100%'
+				className='object-contain fade-in-top aspect-square'
 			/>
 			<div className='absolute bottom-2 xl:bottom-10 h-1/3 w-full flex flex-col justify-center items-center fade-in-bottom'>
 				<a
@@ -21,7 +22,6 @@ export default function Header() {
 						alt='Engage'
 						width={160}
 						height={68}
-						priority
 						className='w-full h-full'
 					/>
 				</a>
