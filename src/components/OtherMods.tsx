@@ -26,9 +26,9 @@ export default function OtherMods() {
 					</P>
 					<P>
 						<a
-							href='https://www.moddb.com/games/crysis/downloads/crysis-warhead-suitvoice-in-original-crysis'
+							href='https://www.moddb.com/downloads/start/261769'
 							target='_blank'
-							rel='noopener noreferrer'
+							rel='noopener'
 							className='font-bold underline'>
 							Download link
 						</a>
