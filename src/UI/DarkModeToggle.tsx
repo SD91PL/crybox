@@ -27,9 +27,16 @@ export default function DarkModeToggle() {
 					? 'Switch to light mode'
 					: 'Switch to dark mode'
 			}
-			className='absolute top-3 right-3 min-[1640px]:fixed xl:top-5 xl:right-5 invert fade-in-right z-50'>
-			<div className='p-1.5 bg-gray-200 dark:bg-gray-800 grayscale -skew-x-10'>
-				<div className='skew-x-10 text-sm'>
+			className='absolute top-3 right-3 min-[1640px]:fixed xl:top-5 xl:right-5 fade-in-right z-50'>
+			<div
+				className={`p-1.5 ${
+					hydrated
+						? theme === 'dark'
+							? 'bg-gray-300'
+							: 'bg-gray-200'
+						: 'bg-gray-200'
+				} grayscale -skew-x-10`}>
+				<div className='skew-x-10 text-sm invert'>
 					{hydrated ? (theme === 'dark' ? '☀️' : '🌙') : '🌙'}
 				</div>
 			</div>
