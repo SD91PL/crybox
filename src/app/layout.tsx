@@ -19,7 +19,9 @@ export default function RootLayout({
 				lang='en'
 				className='scroll-smooth selection:bg-[#a5a5a57c]'
 				data-scroll-behavior='smooth'>
-				<body className='font-sans antialiased'>{children}</body>
+				<body className='font-sans antialiased flex flex-col gap-2.5'>
+					{children}
+				</body>
 			</html>
 		</StoreProvider>
 	)
