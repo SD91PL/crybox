@@ -4,7 +4,7 @@ export default function OtherModsBg() {
 	return (
 		<section
 			id='otherModsBg'
-			className='order-1 xl:order-2 flex-1 flex flex-col justify-start items-center'>
+			className='order-1 xl:order-2 flex-1 flex flex-col justify-start items-center opacity-15'>
 			<Image
 				src='/img/othermods/mobile.png'
 				alt=''
