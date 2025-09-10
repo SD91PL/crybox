@@ -10,7 +10,7 @@ export default function Header() {
 				alt='Crybox - Maximum Control'
 				fill
 				priority
-				sizes='100%'
+				sizes='(max-width: 576px) 100%, (max-width: 768px) 100%, (max-width: 992px) 100%, (max-width: 1200px) 100%, (max-width: 1440px) 100%'
 				className='object-contain fade-in-top aspect-square'
 			/>
 			<div className='absolute bottom-2 xl:bottom-10 h-1/3 w-full flex flex-col justify-center items-center fade-in-bottom'>
