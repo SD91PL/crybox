@@ -6,8 +6,8 @@ export default function Mapping() {
 	return (
 		<section
 			id='mapping'
-			className='container flex flex-col justify-center items-center'>
-			<div className='relative xl:hidden'>
+			className='container flex flex-col justify-center items-center overflow-x-hidden'>
+			<div className='relative xl:hidden fade-in-right'>
 				<H1 center>Controller Layout</H1>
 				<div className='relative'>
 					<Image
@@ -22,7 +22,7 @@ export default function Mapping() {
 							alt='zoom in controller layout'
 							width={48}
 							height={48}
-							className='absolute bottom-2 right-4 min-w-12 min-h-12'
+							className='absolute top-2 right-4 max-w-8 max-h-8 sm:max-w-10 sm:max-h-10 md:max-w-12 md:max-h-12'
 						/>
 					</Link>
 				</div>
@@ -40,7 +40,7 @@ export default function Mapping() {
 							alt='zoom in alternative layout'
 							width={48}
 							height={48}
-							className='absolute bottom-2 right-4 min-w-12 min-h-12'
+							className='absolute top-2 right-4 max-w-8 max-h-8 sm:max-w-10 sm:max-h-10 md:max-w-12 md:max-h-12'
 						/>
 					</Link>
 				</div>
