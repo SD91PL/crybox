@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import P from '@/UI/P'
 
 export default function Download() {
 	return (
@@ -7,7 +8,7 @@ export default function Download() {
 			className='flex-1 h-dvh xl:sticky xl:top-0 flex flex-col justify-center items-center'>
 			<div className='max-w-[23.2rem] mt-20 xl:mt-0'>
 				<a
-					href=''
+					href='https://www.moddb.com/downloads/start/296599'
 					target='_blank'
 					rel='noopener'>
 					<Image
@@ -17,9 +18,20 @@ export default function Download() {
 						height={99}
 					/>
 				</a>
-				<p className='text-right text-xs text-[#767676] px-0.5 pt-2.5'>
-					Coming soon...
-				</p>
+				<div className='mt-2 mb-1.5 text-right'>
+					<P>
+						<span className='text-xs text-[#767676]'>
+							Released Sep 11, 2025{' '}
+						</span>
+						<a
+							href='https://www.moddb.com/mods/crybox/downloads/crybox-xbox-controller-support-for-crysis-and-crysis-warhead'
+							target='_blank'
+							rel='noopener'
+							className='text-xs text-[#767676] px-0.5 pt-2.5'>
+							| ModDB Page |
+						</a>
+					</P>
+				</div>
 			</div>
 		</section>
 	)

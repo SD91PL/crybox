@@ -14,7 +14,7 @@ export default function Instruction() {
 			className='flex-1 flex flex-col gap-5 px-2.5 py-5'>
 			<Section>
 				<H1>
-					Modification Improving Xbox Controller Support for Crysis 1 and Crysis
+					Modification Improving Xbox Controller Support for Crysis and Crysis
 					Warhead (GOG.com)
 				</H1>
 				<H2>Why was this modification created?</H2>
@@ -55,7 +55,8 @@ export default function Instruction() {
 					</li>
 					<li>Layouts and settings ready for printing</li>
 					<li>
-						Full compatibility with Crysis and Crysis Warhead (GOG.com versions)
+						Full compatibility with <strong>Crysis (2007)</strong> and{' '}
+						<strong>Crysis Warhead (2008)</strong> from GOG.com
 					</li>
 				</UL>
 			</Section>
@@ -226,10 +227,10 @@ export default function Instruction() {
 						href='https://discord.com/users/1063454745639010394'
 						target='_blank'
 						rel='noopener noreferrer'
-						className='font-bold underline'>
+						className='font-bold underline underline-offset-4'>
 						Contact me on Discord
 					</a>{' '}
-					– I&apos;m happy to expand the project if there&apos;s interest.
+					- I&apos;m happy to expand the project if there&apos;s interest.
 				</P>
 			</Section>
 		</section>

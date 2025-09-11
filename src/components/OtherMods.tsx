@@ -22,17 +22,27 @@ export default function OtherMods() {
 					<P>
 						This mod replaces the original, low-quality nanosuit voice in Crysis
 						with higher-quality audio files from Crysis: Warhead. It improves
-						both the male and female voices. Top quality.
+						both the male and female voices.
 					</P>
-					<P>
-						<a
-							href='https://www.moddb.com/downloads/start/261769'
-							target='_blank'
-							rel='noopener'
-							className='font-bold underline'>
-							Download link
-						</a>
-					</P>
+					<div className='mt-2 mb-1.5'>
+						<P center>
+							<a
+								href='https://www.moddb.com/downloads/start/261769'
+								target='_blank'
+								rel='noopener'
+								className='font-bold underline underline-offset-4'>
+								Download Link
+							</a>
+							<span className='mx-4'>|</span>
+							<a
+								href='https://www.moddb.com/games/crysis/downloads/crysis-warhead-suitvoice-in-original-crysis'
+								target='_blank'
+								rel='noopener'
+								className='font-bold underline underline-offset-4'>
+								ModDB Page
+							</a>
+						</P>
+					</div>
 					<P>Installation path:</P>
 					<Path>
 						F:\Program Files (x86)\GOG
