@@ -24,7 +24,7 @@
 }
 
 :root {
-	--background: #ffffff;
+	--background: #212121;
 	--foreground: #171717;
 	--transition-filter: filter 0.6s;
 	transition: var(--transition-filter);
