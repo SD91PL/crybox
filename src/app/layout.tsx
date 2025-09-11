@@ -24,7 +24,7 @@ export default function RootLayout({
 				className='scroll-smooth selection:bg-[#a5a5a57c]'
 				data-scroll-behavior='smooth'>
 				<body className='font-sans antialiased'>
-					<div className='flex flex-col gap-2.5 bg-white'>{children}</div>
+					<div className='flex flex-col gap-4 bg-white'>{children}</div>
 				</body>
 			</html>
 		</StoreProvider>
