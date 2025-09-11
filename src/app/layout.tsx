@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { StoreProvider } from '@/store/StoreProvider'
 
@@ -6,6 +6,10 @@ export const metadata: Metadata = {
 	title: 'Crybox',
 	description:
 		'Modification Improving Xbox Controller Support for Crysis and Crysis Warhead (GOG.com versions)',
+}
+
+export const viewport: Viewport = {
+	themeColor: '#212121',
 }
 
 export default function RootLayout({
