@@ -27,7 +27,7 @@ export default function Download() {
 							href='https://www.moddb.com/mods/crybox/downloads/crybox-xbox-controller-support-for-crysis-and-crysis-warhead'
 							target='_blank'
 							rel='noopener'
-							className='text-xs text-[#767676] px-0.5 pt-2.5'>
+							className='text-xs text-[#767676] px-0.5 py-2.5'>
 							| ModDB Page |
 						</a>
 					</P>

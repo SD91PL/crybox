@@ -33,7 +33,7 @@ export default function OtherMods() {
 								className='font-bold underline underline-offset-4'>
 								Download Link
 							</a>
-							<span className='mx-4'>|</span>
+							<span className='mx-5 text-[#767676]'>|</span>
 							<a
 								href='https://www.moddb.com/games/crysis/downloads/crysis-warhead-suitvoice-in-original-crysis'
 								target='_blank'
