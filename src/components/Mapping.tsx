@@ -13,8 +13,8 @@ export default function Mapping() {
 					<Image
 						src='/img/mapping/controller_layout.png'
 						alt='controller layout'
-						width={1440}
-						height={1080}
+						width={1200}
+						height={900}
 					/>
 					<Link href='/controller-layout'>
 						<Image
@@ -31,8 +31,8 @@ export default function Mapping() {
 					<Image
 						src='/img/mapping/alternative_layout.png'
 						alt='alternative layout'
-						width={1440}
-						height={1080}
+						width={1200}
+						height={900}
 					/>
 					<Link href='/alternative-layout'>
 						<Image
@@ -49,15 +49,15 @@ export default function Mapping() {
 				<Image
 					src='/img/mapping/controller_layout.png'
 					alt='controller layout'
-					width={1440}
-					height={1080}
+					width={1200}
+					height={900}
 					className='max-h-dvh w-auto'
 				/>
 				<Image
 					src='/img/mapping/alternative_layout.png'
 					alt='alternative layout'
-					width={1440}
-					height={1080}
+					width={1200}
+					height={900}
 					className='absolute top-0 fade-in-out max-h-dvh w-auto'
 				/>
 			</div>
