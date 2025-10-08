@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import themeReducer from "./features/themeSlice"
+import themeReducer from './features/themeSlice'
+import diffFormSlice from './features/diffFormSlice'
 
 export const store = configureStore({
-	reducer: { theme: themeReducer },
+	reducer: { theme: themeReducer, diffForm: diffFormSlice },
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

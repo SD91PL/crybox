@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import P from '@/UI/P'
 
 export default function Download() {
@@ -29,6 +30,27 @@ export default function Download() {
 							rel='noopener'
 							className='text-xs text-[#767676] px-0.5 py-2.5'>
 							| ModDB Page |
+						</a>
+					</P>
+				</div>
+				<Link href='/customize/gameplay'>
+					<Image
+						src='/img/download/customize.png'
+						alt='Customize Crybox'
+						width={373}
+						height={99}
+						className='mt-8'
+					/>
+				</Link>
+				<div className='mt-2 mb-8 text-right'>
+					<P>
+						<span className='text-xs text-[#767676]'>Unfinished section </span>
+						<a
+							href='https://github.com/SD91PL/crybox'
+							target='_blank'
+							rel='noopener'
+							className='text-xs text-[#767676] px-0.5 py-2.5'>
+							| Work in progress... |
 						</a>
 					</P>
 				</div>

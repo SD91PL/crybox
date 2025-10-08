@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { StoreProvider } from '@/store/StoreProvider'
+import DarkModeToggle from '@/UI/DarkModeToggle'
 
 export const metadata: Metadata = {
 	title: 'Crybox',
@@ -24,6 +25,7 @@ export default function RootLayout({
 				className='scroll-smooth selection:bg-[#a5a5a57c]'
 				data-scroll-behavior='smooth'>
 				<body className='font-sans antialiased'>
+					<DarkModeToggle />
 					<div className='flex flex-col gap-4 bg-white'>{children}</div>
 				</body>
 			</html>
