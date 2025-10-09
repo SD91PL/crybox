@@ -11,8 +11,9 @@ export const diffFormSlice = createSlice({
 		setCloakDrain: (state, action: PayloadAction<number>) => {
 			state.cloakDrain = action.payload
 		},
+		resetDiffForm: () => initialState,
 	},
 })
 
-export const { setCloakDrain } = diffFormSlice.actions
+export const { setCloakDrain, resetDiffForm } = diffFormSlice.actions
 export default diffFormSlice.reducer

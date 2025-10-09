@@ -1,15 +1,20 @@
 'use client'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { setCloakDrain } from '@/store/features/diffFormSlice'
+import { setCloakDrain, resetDiffForm } from '@/store/features/diffFormSlice'
 import { generateDiff } from '@/lib/generateDiff'
 import type { RootState } from '@/store/store'
+import { useEffect } from 'react'
 
 export default function DiffForm() {
 	const dispatch = useDispatch()
 	const cloakDrain = useSelector(
 		(state: RootState) => state.diffForm.cloakDrain
 	)
+
+	useEffect(() => {
+		dispatch(resetDiffForm())
+	}, [dispatch])
 
 	const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		dispatch(setCloakDrain(parseFloat(e.target.value)))
@@ -34,8 +39,19 @@ export default function DiffForm() {
 	return (
 		<form
 			onSubmit={handleSubmit}
-			className='flex flex-col gap-2 max-w-[22.5rem]'>
-			<p>Cloak Drain Adjuster at an Easy Level</p>
+			className='flex flex-col gap-2 w-[22.5rem]'>
+			<div className='flex justify-between'>
+				<p>Cloak Drain Adjuster at an Easy Level</p>
+				<button
+					type='button'
+					onClick={() => {
+						dispatch(resetDiffForm())
+					}}
+					className='block grayscale'>
+					🔃
+				</button>
+			</div>
+
 			<div className='flex flex-row justify-between items-center px-2.5 py-2 bg-[#F5F5F5] border border-[#5D5D5D] rounded-lg text-black'>
 				<label
 					htmlFor='cloakDrain'
@@ -58,9 +74,10 @@ export default function DiffForm() {
 					)}
 				</select>
 			</div>
+
 			<button
 				type='submit'
-				className='mt-3 flex justify-center items-center px-6 py-4 w-full bg-[#F5F5F5] border border-[#5D5D5D] text-black text-3xl rounded-lg'>
+				className='mt-6 flex justify-center items-center px-6 py-4 w-full bg-[#F5F5F5] border border-[#5D5D5D] text-black text-3xl rounded-lg'>
 				Generate diff_easy.cfg
 			</button>
 		</form>
