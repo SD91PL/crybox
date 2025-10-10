@@ -4,17 +4,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setCloakDrain, resetDiffForm } from '@/store/features/diffFormSlice'
 import { generateDiff } from '@/lib/generateDiff'
 import type { RootState } from '@/store/store'
-import { useEffect } from 'react'
 
 export default function DiffForm() {
 	const dispatch = useDispatch()
 	const cloakDrain = useSelector(
 		(state: RootState) => state.diffForm.cloakDrain
 	)
-
-	useEffect(() => {
-		dispatch(resetDiffForm())
-	}, [dispatch])
 
 	const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		dispatch(setCloakDrain(parseFloat(e.target.value)))
@@ -41,9 +36,11 @@ export default function DiffForm() {
 			onSubmit={handleSubmit}
 			className='flex flex-col gap-2 w-[22.5rem]'>
 			<div className='flex justify-between'>
-				<p>Cloak Drain Adjuster at an Easy Level</p>
+				<p>Cloak Drain Adjuster - Easy Level</p>
 				<button
 					type='button'
+					aria-label='Reset'
+					title='Reset settings'
 					onClick={() => {
 						dispatch(resetDiffForm())
 					}}

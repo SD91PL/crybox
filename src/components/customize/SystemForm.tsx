@@ -30,9 +30,10 @@ export default function SystemForm() {
 	const [customProfile, setCustomProfile] = useState(false)
 
 	useEffect(() => {
-		setCustomProfile(false)
-		dispatch(resetSystemForm())
-	}, [dispatch])
+		if (!customProfile && profile !== 'default') {
+			dispatch(setProfile('default'))
+		}
+	}, [customProfile, profile, dispatch])
 
 	const handleDownload = () => {
 		const content = generateSystem({
@@ -67,6 +68,7 @@ export default function SystemForm() {
 				<button
 					type='button'
 					aria-label='Reset'
+					title='Reset settings'
 					onClick={() => {
 						dispatch(resetSystemForm())
 						setCustomProfile(false)
