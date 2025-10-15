@@ -2,12 +2,14 @@ import { configureStore } from '@reduxjs/toolkit'
 import themeReducer from './features/themeSlice'
 import diffFormSlice from './features/diffFormSlice'
 import systemFormReducer from './features/systemFormSlice'
+import controlsFormReducer from './features/controlsFormSlice'
 
 export const store = configureStore({
 	reducer: {
 		theme: themeReducer,
 		diffForm: diffFormSlice,
 		systemForm: systemFormReducer,
+		controlsForm: controlsFormReducer,
 	},
 })
 

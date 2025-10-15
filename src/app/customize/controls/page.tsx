@@ -2,6 +2,8 @@ import Link from 'next/link'
 
 import H2 from '@/UI/H2'
 
+import ControlsForm from '@/components/customize/ControlsForm'
+
 export default function CustomizeControls() {
 	return (
 		<>
@@ -15,8 +17,9 @@ export default function CustomizeControls() {
 					<H2 center>Gameplay</H2>
 				</Link>
 			</div>
-			<div className='mt-8 mb-16 px-1 flex flex-wrap gap-x-32 gap-y-16 w-full justify-center items-start '>
 				<H2 center>Work in progress...</H2>
+			<div className='mt-8 mb-16 px-1 flex flex-wrap gap-x-32 gap-y-16 w-full justify-center items-start '>
+				<ControlsForm />
 			</div>
 		</>
 	)
