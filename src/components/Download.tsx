@@ -33,7 +33,7 @@ export default function Download() {
 						</a>
 					</P>
 				</div>
-				<Link href='/customize/gameplay'>
+				<Link href='/customize/controls'>
 					<Image
 						src='/img/download/customize.png'
 						alt='Customize Crybox'
@@ -44,13 +44,15 @@ export default function Download() {
 				</Link>
 				<div className='mt-2 mb-8 text-right'>
 					<P>
-						<span className='text-xs text-[#767676]'>Unfinished section </span>
+						<span className='text-xs text-[#767676]'>
+							Released Oct 23, 2025{' '}
+						</span>
 						<a
 							href='https://github.com/SD91PL/crybox'
 							target='_blank'
 							rel='noopener'
 							className='text-xs text-[#767676] px-0.5 py-2.5'>
-							| Work in progress... |
+							| GitHub Repo |
 						</a>
 					</P>
 				</div>
