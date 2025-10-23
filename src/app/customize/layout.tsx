@@ -30,6 +30,9 @@ export default function CustomizeLayout({
 				/>
 			</Link>
 			<H1 center>Customize Controller and Gameplay Settings</H1>
+			<h2 className='text-blue-600'>
+				Unfinished section | Work in progress...
+			</h2>
 			{children}
 		</div>
 	)
