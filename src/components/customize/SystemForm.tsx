@@ -63,17 +63,17 @@ export default function SystemForm() {
 		<form
 			onSubmit={handleSubmit}
 			className='flex flex-col gap-2 w-[22.5rem]'>
-			<div className='flex justify-between'>
-				<p>System Settings</p>
+			<div className='flex justify-between items-center mb-1'>
+				<p className='text-lg font-semibold'>System Settings</p>
 				<button
 					type='button'
 					aria-label='Reset'
-					title='Reset settings'
+					title='Reset Settings'
 					onClick={() => {
 						dispatch(resetSystemForm())
 						setCustomProfile(false)
 					}}
-					className='block grayscale'>
+					className='block p-1 bg-gray-200 hover:bg-gray-300 rounded transition-colors grayscale'>
 					🔃
 				</button>
 			</div>
@@ -115,7 +115,7 @@ export default function SystemForm() {
 				options={{ Disable: 0, Enable: 1 }}
 			/>
 
-			<div className='flex flex-row justify-between items-center px-2.5 py-2 bg-[#F5F5F5] border border-[#5D5D5D] rounded-lg text-black'>
+			<div className='flex flex-row justify-between items-center px-2.5 py-2 bg-[#F5F5F5]  border border-gray-300 rounded shadow-sm text-black'>
 				<label className='block flex-1'>Profile Name</label>
 				{!customProfile ? (
 					<select
@@ -127,7 +127,7 @@ export default function SystemForm() {
 								dispatch(setProfile(e.target.value))
 							}
 						}}
-						className='block flex-1 px-1.25 py-1 bg-white border border-black rounded-sm max-w-[10.9375rem]'>
+						className='block flex-1 px-1.25 py-1 bg-white border border-gray-400 rounded-sm max-w-[10.9375rem]'>
 						<option value='default'>Default</option>
 						<option value='other'>Other...</option>
 					</select>
@@ -136,14 +136,14 @@ export default function SystemForm() {
 						type='text'
 						value={profile}
 						onChange={e => dispatch(setProfile(e.target.value))}
-						className='block flex-1 px-1.25 py-1 bg-white border border-black rounded-sm max-w-[10.9375rem] max-h-7'
+						className='block flex-1 px-1.25 py-1 bg-white border border-gray-400 rounded-sm max-w-[10.9375rem] max-h-7'
 					/>
 				)}
 			</div>
 
 			<button
 				type='submit'
-				className='mt-6 flex justify-center items-center px-6 py-4 w-full bg-[#F5F5F5] border border-[#5D5D5D] text-black text-3xl rounded-lg'>
+				className='mt-4 px-6 py-4 w-full bg-gray-600 hover:bg-gray-700 text-white text-xl font-semibold rounded-lg transition-colors shadow-md'>
 				Generate system.cfg
 			</button>
 		</form>
@@ -162,12 +162,12 @@ function SelectRow({
 	options: Record<string, number>
 }) {
 	return (
-		<div className='flex flex-row justify-between items-center px-2.5 py-2 bg-[#F5F5F5] border border-[#5D5D5D] rounded-lg text-black'>
+		<div className='flex flex-row justify-between items-center px-2.5 py-2 bg-[#F5F5F5]  border border-gray-300 rounded shadow-sm text-black'>
 			<label className='block flex-1'>{label}</label>
 			<select
 				value={value}
 				onChange={e => onChange(parseInt(e.target.value))}
-				className='block flex-1 px-1.25 py-1 bg-white border border-black rounded-sm'>
+				className='block flex-1 px-1.25 py-1 bg-white border border-gray-400 rounded-sm'>
 				{Object.entries(options).map(([label, val]) => (
 					<option
 						key={val}

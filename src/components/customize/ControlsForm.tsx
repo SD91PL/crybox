@@ -207,18 +207,19 @@ export default function ControlsForm() {
 					<p className='text-lg font-semibold'>Xbox Controller Mapping</p>
 					<button
 						type='button'
-						aria-label='Reset'
+						aria-label='Reset All'
+						title='Reset All'
 						onClick={() => {
 							dispatch(resetControlsForm())
 							setCustomVersion(false)
 							setVersionInput('20')
 						}}
-						className='px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded text-sm transition-colors'>
-						Reset All
+						className='p-1 bg-gray-200 hover:bg-gray-300 rounded transition-colors grayscale'>
+						🔃
 					</button>
 				</div>
 
-				<div className='flex flex-row justify-between items-center px-2.5 py-2 bg-[#F5F5F5] border border-[#5D5D5D] rounded-lg text-black'>
+				<div className='flex flex-row justify-between items-center px-2.5 py-2 bg-[#F5F5F5]  border border-gray-300 rounded shadow-sm text-black'>
 					<label className='block flex-1'>Version</label>
 					{!customVersion ? (
 						<select
@@ -232,7 +233,7 @@ export default function ControlsForm() {
 									dispatch(setVersion(val))
 								}
 							}}
-							className='block flex-1 px-1.25 py-1 bg-white border border-black rounded-sm max-w-[10.9375rem] max-h-7'>
+							className='block flex-1 px-1.25 py-1 bg-white border border-gray-400 rounded-sm max-w-[10.9375rem] max-h-7'>
 							<option value={20}>20 - Crysis</option>
 							<option value={19}>19 - Crysis Warhead</option>
 							<option value='other'>Other...</option>
@@ -254,18 +255,19 @@ export default function ControlsForm() {
 										dispatch(setVersion(0))
 									}
 								}}
-								className='block flex-1 px-1.25 py-1 bg-white border border-black rounded-sm max-w-[10.9375rem] max-h-7'
+								className='block flex-1 px-1.25 py-1 bg-white border border-gray-400 rounded-sm max-w-[10.9375rem] max-h-7'
 								placeholder='0-99'
 							/>
 							<button
 								type='button'
 								aria-label='Reset'
+								title='Reset'
 								onClick={() => {
 									dispatch(resetControlsForm())
 									setCustomVersion(false)
 									setVersionInput('20') // initialState = 20
 								}}
-								className='block grayscale pl-1'>
+								className='block grayscale pl-2'>
 								🔃
 							</button>
 						</>
@@ -288,7 +290,7 @@ export default function ControlsForm() {
 								onClick={() => setActiveTab(tab as keyof typeof ACTIONMAPS)}
 								className={`px-4 py-2 font-medium whitespace-nowrap transition-colors ${
 									activeTab === tab
-										? 'border-b-2 border-blue-500 text-blue-600'
+										? 'border-b-2 border-gray-500 text-gray-600'
 										: 'text-gray-600 hover:text-gray-800'
 								}`}>
 								{displayName}
@@ -337,7 +339,7 @@ export default function ControlsForm() {
 
 			<button
 				type='submit'
-				className='mt-4 px-6 py-4 w-full bg-blue-600 hover:bg-blue-700 text-white text-xl font-semibold rounded-lg transition-colors shadow-md'>
+				className='mt-4 px-6 py-4 w-full bg-gray-600 hover:bg-gray-700 text-white text-xl font-semibold rounded-lg transition-colors shadow-md'>
 				Generate actionmaps.xml
 			</button>
 		</form>
