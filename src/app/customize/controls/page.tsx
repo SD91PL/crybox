@@ -17,7 +17,7 @@ export default function CustomizeControls() {
 					<H2 center>Gameplay</H2>
 				</Link>
 			</div>
-			<div className='mt-8 mb-16 px-1 flex flex-wrap gap-x-32 gap-y-16 w-full justify-center items-start'>
+			<div className='mt-8 mb-16 px-1 flex flex-wrap w-full justify-center items-start grayscale'>
 				<ControlsForm />
 			</div>
 		</>
