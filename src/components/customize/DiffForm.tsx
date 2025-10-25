@@ -5,6 +5,8 @@ import { setCloakDrain, resetDiffForm } from '@/store/features/diffFormSlice'
 import { generateDiff } from '@/lib/generateDiff'
 import type { RootState } from '@/store/store'
 
+import { ResetLeftFill } from '@/UI/customize/ResetBtn'
+
 export default function DiffForm() {
 	const dispatch = useDispatch()
 	const cloakDrain = useSelector(
@@ -44,8 +46,8 @@ export default function DiffForm() {
 					onClick={() => {
 						dispatch(resetDiffForm())
 					}}
-					className='block p-1 bg-gray-200 hover:bg-gray-300 rounded transition-colors grayscale'>
-					🔃
+					className='group block p-1 bg-gray-200 hover:bg-gray-300 rounded transition-colors'>
+					<ResetLeftFill fill='#364153' />
 				</button>
 			</div>
 

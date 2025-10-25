@@ -14,6 +14,7 @@ import {
 import { generateSystem } from '@/lib/generateSystem'
 import type { RootState } from '@/store/store'
 import { useState, useEffect } from 'react'
+import { ResetLeftFill } from '@/UI/customize/ResetBtn'
 
 export default function SystemForm() {
 	const dispatch = useDispatch()
@@ -73,8 +74,8 @@ export default function SystemForm() {
 						dispatch(resetSystemForm())
 						setCustomProfile(false)
 					}}
-					className='block p-1 bg-gray-200 hover:bg-gray-300 rounded transition-colors grayscale'>
-					🔃
+					className='group block p-1 bg-gray-200 hover:bg-gray-300 rounded transition-colors'>
+					<ResetLeftFill fill='#364153' />
 				</button>
 			</div>
 

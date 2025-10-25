@@ -9,6 +9,7 @@ import {
 import { generateControls } from '@/lib/generateControls'
 import type { RootState } from '@/store/store'
 import { useState, useEffect } from 'react'
+import { ResetLeftFill } from '@/UI/customize/ResetBtn'
 
 // Available Xbox buttons with descriptions (without analog axes)
 const XI_BUTTONS = [
@@ -214,8 +215,8 @@ export default function ControlsForm() {
 							setCustomVersion(false)
 							setVersionInput('20')
 						}}
-						className='p-1 bg-gray-200 hover:bg-gray-300 rounded transition-colors grayscale'>
-						🔃
+						className='group block p-1 bg-gray-200 hover:bg-gray-300 rounded transition-colors'>
+						<ResetLeftFill fill='#364153' />
 					</button>
 				</div>
 
@@ -267,8 +268,8 @@ export default function ControlsForm() {
 									setCustomVersion(false)
 									setVersionInput('20') // initialState = 20
 								}}
-								className='block grayscale pl-2'>
-								🔃
+								className='group block pl-2 py-1'>
+								<ResetLeftFill fill='#364153' />
 							</button>
 						</>
 					)}
