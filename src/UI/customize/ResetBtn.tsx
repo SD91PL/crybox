@@ -6,7 +6,7 @@ export const ResetLeftFill: React.FC<ResetLeftFillProps> = ({
 	fill = '#000',
 }) => (
 	<svg
-		className='transition-transform duration-1000  group-hover:-rotate-180'
+		className='transition-transform duration-1000 group-hover:-rotate-90'
 		xmlns='http://www.w3.org/2000/svg'
 		width='1em'
 		height='1em'
