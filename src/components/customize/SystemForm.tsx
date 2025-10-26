@@ -14,7 +14,11 @@ import {
 import { generateSystem } from '@/lib/generateSystem'
 import type { RootState } from '@/store/store'
 import { useState, useEffect } from 'react'
-import { ResetLeftFill } from '@/UI/customize/ResetBtn'
+import { FormContainer } from '@/UI/customize/FormContainer'
+import { FormHeader } from '@/UI/customize/FormHeader'
+import { SelectRow } from '@/UI/customize/SelectRow'
+import { InputRow } from '@/UI/customize/InputRow'
+import { SubmitButton } from '@/UI/customize/SubmitButton'
 
 export default function SystemForm() {
 	const dispatch = useDispatch()
@@ -30,6 +34,7 @@ export default function SystemForm() {
 
 	const [customProfile, setCustomProfile] = useState(false)
 
+	// Reset profile to default when custom profile mode is disabled
 	useEffect(() => {
 		if (!customProfile && profile !== 'default') {
 			dispatch(setProfile('default'))
@@ -61,63 +66,59 @@ export default function SystemForm() {
 	}
 
 	return (
-		<form
-			onSubmit={handleSubmit}
-			className='flex flex-col gap-2 w-[22.5rem]'>
-			<div className='flex justify-between items-center mb-1'>
-				<p className='text-lg font-semibold'>System Settings</p>
-				<button
-					type='button'
-					aria-label='Reset'
-					title='Reset Settings'
-					onClick={() => {
-						dispatch(resetSystemForm())
-						setCustomProfile(false)
-					}}
-					className='group block p-1 bg-gray-200 hover:bg-gray-300 rounded transition-colors'>
-					<ResetLeftFill fill='#364153' />
-				</button>
-			</div>
+		<FormContainer onSubmit={handleSubmit}>
+			<FormHeader
+				title='System Settings'
+				onReset={() => {
+					dispatch(resetSystemForm())
+					setCustomProfile(false)
+				}}
+				className='mb-1'
+			/>
 
 			<SelectRow
 				label='Xbox Pad Support'
 				value={xinput}
-				onChange={val => dispatch(setXinput(val))}
+				onChange={val => dispatch(setXinput(parseInt(val)))}
 				options={{ Enable: 1, Disable: 0 }}
 			/>
+
 			<SelectRow
 				label='Controller Vibration'
 				value={vibration}
-				onChange={val => dispatch(setVibration(val))}
+				onChange={val => dispatch(setVibration(parseInt(val)))}
 				options={{ Enable: 1, Disable: 0 }}
 			/>
+
 			<SelectRow
 				label='Crouch'
 				value={crouchToggle}
-				onChange={val => dispatch(setCrouchToggle(val))}
+				onChange={val => dispatch(setCrouchToggle(parseInt(val)))}
 				options={{ Toggle: 1, Hold: 0 }}
 			/>
+
 			<SelectRow
 				label='Aim'
 				value={aimZoomMode}
-				onChange={val => dispatch(setAimZoomMode(val))}
+				onChange={val => dispatch(setAimZoomMode(parseInt(val)))}
 				options={{ Hold: 1, Toggle: 0 }}
 			/>
+
 			<SelectRow
 				label='Aim Assist'
 				value={aimAssist}
-				onChange={val => dispatch(setAimAssist(val))}
+				onChange={val => dispatch(setAimAssist(parseInt(val)))}
 				options={{ Enable: 1, Disable: 0 }}
 			/>
+
 			<SelectRow
 				label='Cutscenes Bars'
 				value={cutsceneBars}
-				onChange={val => dispatch(setCutsceneBars(val))}
+				onChange={val => dispatch(setCutsceneBars(parseInt(val)))}
 				options={{ Disable: 0, Enable: 1 }}
 			/>
 
-			<div className='flex flex-row justify-between items-center px-2.5 py-2 bg-[#F5F5F5]  border border-gray-300 rounded shadow-sm text-black'>
-				<label className='block flex-1'>Profile Name</label>
+			<InputRow label='Profile Name'>
 				{!customProfile ? (
 					<select
 						value={profile}
@@ -140,43 +141,9 @@ export default function SystemForm() {
 						className='block flex-1 px-1.25 py-1 bg-white border border-gray-400 rounded-sm max-w-[10.9375rem] max-h-7'
 					/>
 				)}
-			</div>
+			</InputRow>
 
-			<button
-				type='submit'
-				className='mt-4 px-6 py-4 w-full bg-gray-600 hover:bg-gray-700 text-white text-xl font-semibold rounded-lg transition-colors shadow-md'>
-				Generate system.cfg
-			</button>
-		</form>
-	)
-}
-
-function SelectRow({
-	label,
-	value,
-	onChange,
-	options,
-}: {
-	label: string
-	value: number
-	onChange: (val: number) => void
-	options: Record<string, number>
-}) {
-	return (
-		<div className='flex flex-row justify-between items-center px-2.5 py-2 bg-[#F5F5F5]  border border-gray-300 rounded shadow-sm text-black'>
-			<label className='block flex-1'>{label}</label>
-			<select
-				value={value}
-				onChange={e => onChange(parseInt(e.target.value))}
-				className='block flex-1 px-1.25 py-1 bg-white border border-gray-400 rounded-sm'>
-				{Object.entries(options).map(([label, val]) => (
-					<option
-						key={val}
-						value={val}>
-						{label}
-					</option>
-				))}
-			</select>
-		</div>
+			<SubmitButton className='mt-4'>Generate system.cfg</SubmitButton>
+		</FormContainer>
 	)
 }

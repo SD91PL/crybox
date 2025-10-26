@@ -9,7 +9,11 @@ import {
 import { generateControls } from '@/lib/generateControls'
 import type { RootState } from '@/store/store'
 import { useState, useEffect } from 'react'
-import { ResetLeftFill } from '@/UI/customize/ResetBtn'
+import { FormContainer } from '@/UI/customize/FormContainer'
+import { FormHeader } from '@/UI/customize/FormHeader'
+import { InputRow } from '@/UI/customize/InputRow'
+import { TabNavigation } from '@/UI/customize/TabNavigation'
+import { SubmitButton } from '@/UI/customize/SubmitButton'
 
 // Available Xbox buttons with descriptions (without analog axes)
 const XI_BUTTONS = [
@@ -38,7 +42,7 @@ type ActionMapping = {
 	actionmaps: string[]
 }
 
-// Mapping actions to original buttons (without analog axes - these will remain at their default values)
+// Default button mappings for each action
 const DEFAULT_MAPPINGS: Record<string, string> = {
 	'default.attack1': 'xi_triggerr_btn',
 	'default.xi_attack1': 'xi_triggerr_btn',
@@ -84,7 +88,7 @@ const DEFAULT_MAPPINGS: Record<string, string> = {
 	'vtol.v_boost': 'xi_shoulderl',
 }
 
-// Grouping actions
+// Grouped action mappings
 const ACTIONMAPS = {
 	singleplayer: [
 		{ key: 'xi_hud_back', label: 'Pause Menu', actionmaps: ['default'] },
@@ -109,18 +113,15 @@ const ACTIONMAPS = {
 		{ key: 'xi_attack2', label: 'Aim / Fire 2', actionmaps: ['default'] },
 		{ key: 'sprint', label: 'Sprint', actionmaps: ['player'] },
 		{ key: 'special', label: 'Melee', actionmaps: ['player'] },
-
 		{ key: 'firemode', label: 'Fire Mode', actionmaps: ['default'] },
 		{ key: 'handgrenade', label: 'Grenade Type', actionmaps: ['player'] },
 		{ key: 'nextitem', label: 'Weapon Selection', actionmaps: ['player'] },
 		{ key: 'prone', label: 'Prone', actionmaps: ['player'] },
-
 		{ key: 'hud_select1', label: 'HUD Select 1', actionmaps: ['default'] },
 		{ key: 'hud_select2', label: 'HUD Select 2', actionmaps: ['default'] },
 		{ key: 'hud_select3', label: 'HUD Select 3', actionmaps: ['default'] },
 		{ key: 'hud_select4', label: 'HUD Select 4', actionmaps: ['default'] },
 		{ key: 'hud_select5', label: 'HUD Select 5', actionmaps: ['default'] },
-
 		{ key: 'zoom_in', label: 'Zoom In', actionmaps: ['player'] },
 		{ key: 'zoom_out', label: 'Zoom Out', actionmaps: ['player'] },
 	],
@@ -163,7 +164,7 @@ export default function ControlsForm() {
 	const [activeTab, setActiveTab] =
 		useState<keyof typeof ACTIONMAPS>('singleplayer')
 
-	// synchronizing input with redux (e.g., after reset)
+	// Synchronize input with redux (e.g., after reset)
 	useEffect(() => {
 		setVersionInput(version.toString())
 	}, [version])
@@ -185,9 +186,9 @@ export default function ControlsForm() {
 	}
 
 	const handleMappingChange = (action: ActionMapping, button: string) => {
-		// Update all actionmaps associated with a specified action
+		// Update all actionmaps associated with the specified action
 		action.actionmaps.forEach((mapping: string) => {
-			// Check if the mapping contains a dot (full key like ‘default.xi_attack1’)
+			// Check if the mapping contains a dot (full key like 'default.xi_attack1')
 			if (mapping.includes('.')) {
 				// This is the full key - use it directly
 				dispatch(setControlMapping({ key: mapping, value: button }))
@@ -199,29 +200,39 @@ export default function ControlsForm() {
 		})
 	}
 
-	return (
-		<form
-			onSubmit={handleSubmit}
-			className='flex flex-col gap-4 w-full max-w-[22.5rem]'>
-			<div className='flex flex-col gap-4 w-full'>
-				<div className='flex justify-between items-center'>
-					<p className='text-lg font-semibold'>Xbox Controller Mapping</p>
-					<button
-						type='button'
-						aria-label='Reset All'
-						title='Reset All'
-						onClick={() => {
-							dispatch(resetControlsForm())
-							setCustomVersion(false)
-							setVersionInput('20')
-						}}
-						className='group block p-1 bg-gray-200 hover:bg-gray-300 rounded transition-colors'>
-						<ResetLeftFill fill='#364153' />
-					</button>
-				</div>
+	// Prepare tabs for navigation
+	const tabs = [
+		{ key: 'singleplayer', label: 'Single Player' },
+		{ key: 'vehicles', label: 'Vehicles' },
+		{ key: 'aircraft', label: 'Heli / VTOL' },
+	]
 
-				<div className='flex flex-row justify-between items-center px-2.5 py-2 bg-[#F5F5F5]  border border-gray-300 rounded shadow-sm text-black'>
-					<label className='block flex-1'>Version</label>
+	return (
+		<FormContainer
+			onSubmit={handleSubmit}
+			className='max-w-[22.5rem]'>
+			<div className='flex flex-col gap-4 w-full'>
+				<FormHeader
+					title='Xbox Controller Mapping'
+					resetLabel='Reset All'
+					onReset={() => {
+						dispatch(resetControlsForm())
+						setCustomVersion(false)
+						setVersionInput('20')
+					}}
+				/>
+
+				<InputRow
+					label='Version'
+					onReset={
+						customVersion
+							? () => {
+									dispatch(resetControlsForm())
+									setCustomVersion(false)
+									setVersionInput('20')
+							  }
+							: undefined
+					}>
 					{!customVersion ? (
 						<select
 							value={version}
@@ -234,71 +245,38 @@ export default function ControlsForm() {
 									dispatch(setVersion(val))
 								}
 							}}
-							className='block flex-1 px-1.25 py-1 bg-white border border-gray-400 rounded-sm max-w-[10.9375rem] max-h-7'>
+							className='block flex-1 px-1.25 py-1 bg-white border border-gray-400 rounded-sm max-h-7'>
 							<option value={20}>20 - Crysis</option>
 							<option value={19}>19 - Crysis Warhead</option>
 							<option value='other'>Other...</option>
 						</select>
 					) : (
-						<>
-							<input
-								type='number'
-								min={0}
-								max={99}
-								value={versionInput}
-								onChange={e => {
-									const val = e.target.value
-									setVersionInput(val)
-									const num = parseInt(val)
-									if (!isNaN(num) && num >= 0 && num <= 99) {
-										dispatch(setVersion(num))
-									} else {
-										dispatch(setVersion(0))
-									}
-								}}
-								className='block flex-1 px-1.25 py-1 bg-white border border-gray-400 rounded-sm max-w-[10.9375rem] max-h-7'
-								placeholder='0-99'
-							/>
-							<button
-								type='button'
-								aria-label='Reset'
-								title='Reset'
-								onClick={() => {
-									dispatch(resetControlsForm())
-									setCustomVersion(false)
-									setVersionInput('20') // initialState = 20
-								}}
-								className='group block pl-2 py-1'>
-								<ResetLeftFill fill='#364153' />
-							</button>
-						</>
+						<input
+							type='number'
+							min={0}
+							max={99}
+							value={versionInput}
+							onChange={e => {
+								const val = e.target.value
+								setVersionInput(val)
+								const num = parseInt(val)
+								if (!isNaN(num) && num >= 0 && num <= 99) {
+									dispatch(setVersion(num))
+								} else {
+									dispatch(setVersion(0))
+								}
+							}}
+							className='block flex-1 px-1.25 py-1 bg-white border border-gray-400 rounded-sm max-h-7'
+							placeholder='0-99'
+						/>
 					)}
-				</div>
+				</InputRow>
 
-				{/* Tabs */}
-				<div className='flex justify-between border-b border-gray-300'>
-					{Object.keys(ACTIONMAPS).map(tab => {
-						const displayName =
-							tab === 'aircraft'
-								? 'Heli / VTOL'
-								: tab === 'singleplayer'
-								? 'Single Player'
-								: tab.charAt(0).toUpperCase() + tab.slice(1)
-						return (
-							<button
-								key={tab}
-								type='button'
-								onClick={() => setActiveTab(tab as keyof typeof ACTIONMAPS)}
-								className={`px-4 py-2 font-medium whitespace-nowrap transition-colors ${
-									activeTab === tab
-										? 'border-b-2 border-gray-500 text-gray-600'
-										: 'text-gray-600 hover:text-gray-800'
-								}`}>
-								{displayName}
-							</button>
-						)
-					})}
-				</div>
+				<TabNavigation
+					tabs={tabs}
+					activeTab={activeTab}
+					onTabChange={tab => setActiveTab(tab as keyof typeof ACTIONMAPS)}
+				/>
 
 				{/* Action mappings */}
 				<div className='flex flex-col gap-3 h-96 overflow-y-auto p-2 bg-gray-50 rounded-lg border border-gray-200'>
@@ -338,11 +316,7 @@ export default function ControlsForm() {
 				</div>
 			</div>
 
-			<button
-				type='submit'
-				className='mt-4 px-6 py-4 w-full bg-gray-600 hover:bg-gray-700 text-white text-xl font-semibold rounded-lg transition-colors shadow-md'>
-				Generate actionmaps.xml
-			</button>
-		</form>
+			<SubmitButton className='mt-4'>Generate actionmaps.xml</SubmitButton>
+		</FormContainer>
 	)
 }

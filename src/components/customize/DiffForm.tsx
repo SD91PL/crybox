@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setCloakDrain, resetDiffForm } from '@/store/features/diffFormSlice'
 import { generateDiff } from '@/lib/generateDiff'
 import type { RootState } from '@/store/store'
-
-import { ResetLeftFill } from '@/UI/customize/ResetBtn'
+import { FormContainer } from '@/UI/customize/FormContainer'
+import { FormHeader } from '@/UI/customize/FormHeader'
+import { SelectRow } from '@/UI/customize/SelectRow'
+import { SubmitButton } from '@/UI/customize/SubmitButton'
 
 export default function DiffForm() {
 	const dispatch = useDispatch()
@@ -13,8 +15,8 @@ export default function DiffForm() {
 		(state: RootState) => state.diffForm.cloakDrain
 	)
 
-	const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-		dispatch(setCloakDrain(parseFloat(e.target.value)))
+	const handleChange = (val: string) => {
+		dispatch(setCloakDrain(parseFloat(val)))
 	}
 
 	const handleDownload = () => {
@@ -33,57 +35,36 @@ export default function DiffForm() {
 		handleDownload()
 	}
 
-	return (
-		<form
-			onSubmit={handleSubmit}
-			className='flex flex-col gap-2 w-[22.5rem]'>
-			<div className='flex justify-between items-center mb-1'>
-				<p className='text-lg font-semibold'>Easy Level Settings</p>
-				<button
-					type='button'
-					aria-label='Reset'
-					title='Reset Settings'
-					onClick={() => {
-						dispatch(resetDiffForm())
-					}}
-					className='group block p-1 bg-gray-200 hover:bg-gray-300 rounded transition-colors'>
-					<ResetLeftFill fill='#364153' />
-				</button>
-			</div>
+	// Generate options array for cloak drain values (0.0 to 1.0)
+	const cloakDrainOptions = Array.from({ length: 11 }, (_, i) => {
+		const val = (i * 0.1).toFixed(1)
+		return { label: val, value: val }
+	})
 
-			<div className='flex flex-row justify-between items-center px-2.5 py-2 bg-[#F5F5F5]  border border-gray-300 rounded shadow-sm text-black'>
-				<label
-					htmlFor='cloakDrain'
-					className='block flex-1'>
-					Cloak Mode Draining
-				</label>
-				<select
-					id='cloakDrain'
-					className='block flex-1 px-1.25 py-1 bg-white border border-gray-400 rounded-sm'
-					value={cloakDrain.toFixed(1)}
-					onChange={handleChange}>
-					{Array.from({ length: 11 }, (_, i) => (i * 0.1).toFixed(1)).map(
-						val => (
-							<option
-								key={val}
-								value={val}>
-								{val}
-							</option>
-						)
-					)}
-				</select>
-			</div>
+	return (
+		<FormContainer onSubmit={handleSubmit}>
+			<FormHeader
+				title='Easy Level Settings'
+				onReset={() => dispatch(resetDiffForm())}
+				className='mb-1'
+			/>
+
+			<SelectRow
+				id='cloakDrain'
+				label='Cloak Mode Draining'
+				value={cloakDrain.toFixed(1)}
+				onChange={handleChange}
+				options={cloakDrainOptions}
+			/>
+
+			{/* Helper text for cloak drain values */}
 			<div className='flex justify-between mt-1.5 px-2'>
 				<p className='text-sm text-gray-500'>0 - Never Ending</p>
 				<p className='text-sm text-gray-500'>0.1 - Crybox</p>
 				<p className='text-sm text-gray-500'>1 - Crysis Default</p>
 			</div>
 
-			<button
-				type='submit'
-				className='mt-2 px-6 py-4 w-full bg-gray-600 hover:bg-gray-700 text-white text-xl font-semibold rounded-lg transition-colors shadow-md'>
-				Generate diff_easy.cfg
-			</button>
-		</form>
+			<SubmitButton className='mt-2'>Generate diff_easy.cfg</SubmitButton>
+		</FormContainer>
 	)
 }
