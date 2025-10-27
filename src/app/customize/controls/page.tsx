@@ -4,6 +4,12 @@ import H2 from '@/UI/H2'
 
 import ControlsForm from '@/components/customize/ControlsForm'
 
+export const metadata = {
+	alternates: {
+		canonical: 'https://crybox.vercel.app/customize/controls',
+	},
+}
+
 export default function CustomizeControls() {
 	return (
 		<>

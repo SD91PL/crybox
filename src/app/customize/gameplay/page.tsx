@@ -4,6 +4,12 @@ import H2 from '@/UI/H2'
 import DiffForm from '@/components/customize/DiffForm'
 import SystemForm from '@/components/customize/SystemForm'
 
+export const metadata = {
+	alternates: {
+		canonical: 'https://crybox.vercel.app/customize/gameplay',
+	},
+}
+
 export default function CustomizeGameplay() {
 	return (
 		<>

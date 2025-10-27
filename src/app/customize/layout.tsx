@@ -4,7 +4,7 @@ import Image from 'next/image'
 import H1 from '@/UI/H1'
 
 export const metadata: Metadata = {
-	title: 'Crybox - Customize',
+	title: 'Customize',
 	description:
 		'Customize Xbox Controller Mapping and Gameplay for Crysis and Crysis Warhead (GOG.com versions)',
 }
