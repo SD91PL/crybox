@@ -98,13 +98,15 @@ export default function RootLayout({
 				lang='en'
 				className='scroll-smooth selection:bg-[#a5a5a57c]'
 				data-scroll-behavior='smooth'>
-				<body className='font-sans antialiased'>
+				<head>
 					<Script
 						id='json-ld-schema'
 						type='application/ld+json'
 						dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 						strategy='beforeInteractive'
 					/>
+				</head>
+				<body className='font-sans antialiased'>
 					<DarkModeToggle />
 					<div className='flex flex-col gap-4 bg-white'>{children}</div>
 				</body>
