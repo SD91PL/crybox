@@ -219,17 +219,17 @@ export default function Instruction() {
 				<div className={`${gap}`}>
 					<H2>Button Remapping</H2>
 					<P>
-						Xbox Controller Fix for Crysis - Crybox now delivers a powerful
-						solution thanks to newly added customization features. The latest
-						update introduces two dedicated panels that let players fully remap
-						controls and adjust gameplay behavior, making Crybox one of the most
-						flexible ways to enjoy Crysis and Crysis&nbsp;Warhead with modern
-						controller support.
+						Xbox Controller Fix for Crysis - Crybox now offers a powerful
+						solution with its newly added customization features. The latest
+						update introduces two dedicated panels that allow players to fully
+						remap controls and adjust gameplay settings, making Crybox one of
+						the most flexible ways to enjoy Crysis and Crysis&nbsp;Warhead with
+						modern controller support.
 					</P>
 					<P>
 						If you trust my optimized settings, click <strong>Download</strong>{' '}
 						to get the ready-to-use configuration. If&nbsp;you&nbsp;prefer your
-						own layout or want to fine-tune Crysis controller behavior, press{' '}
+						own layout or want to fine-tune Crysis gameplay settings, press{' '}
 						<strong>Customize</strong> to&nbsp;access{' '}
 						<strong translate='no'>/customize/controls</strong> and{' '}
 						<strong translate='no'>/customize/gameplay</strong> and generate
