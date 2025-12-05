@@ -221,8 +221,8 @@ export default function Instruction() {
 					<P>
 						Xbox Controller Fix for Crysis - Crybox now delivers a powerful
 						solution thanks to newly added customization features. The latest
-						update introduces two dedicated panels that let players fully adjust
-						controls and gameplay behavior, making Crybox one of the most
+						update introduces two dedicated panels that let players fully remap
+						controls and adjust gameplay behavior, making Crybox one of the most
 						flexible ways to enjoy Crysis and Crysis&nbsp;Warhead with modern
 						controller support.
 					</P>
