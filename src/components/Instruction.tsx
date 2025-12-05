@@ -216,6 +216,26 @@ export default function Instruction() {
 						Galaxy\Games\Crysis\Bin64\Crysis.exe&quot;
 					</Path>
 				</div>
+				<div className={`${gap}`}>
+					<H2>Button Remapping</H2>
+					<P>
+						Xbox Controller Fix for Crysis - Crybox now delivers a powerful
+						solution thanks to newly added customization features. The latest
+						update introduces two dedicated panels that let players fully adjust
+						controls and gameplay behavior, making Crybox one of the most
+						flexible ways to enjoy Crysis and Crysis Warhead - like experiences
+						with modern controller support.
+					</P>
+					<P>
+						If you trust my optimized settings, click <strong>Download</strong>{' '}
+						to get the ready-to-use configuration. If&nbsp;you&nbsp;prefer your
+						own layout or want to fine-tune Crysis controller behavior, press{' '}
+						<strong>Customize</strong> to&nbsp;access{' '}
+						<strong>/customize/controls</strong> and{' '}
+						<strong>/customize/gameplay</strong> and generate your personalized
+						files.
+					</P>
+				</div>
 			</Section>
 			<Section>
 				<H1>Contact & Development</H1>
