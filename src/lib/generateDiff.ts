@@ -1,5 +1,8 @@
-export function generateDiff(cloakDrain: number): string {
-  return `-- EASY
+export function generateDiff(
+	cloakDrain: number,
+	speedEnergyConsumption: number,
+): string {
+	return `-- EASY
 
 -- AI Detection speed
 ai_SOMSpeedRelaxed = 1.2
@@ -40,7 +43,7 @@ ai_UseAlternativeReadability = 1
 -- Player Health/Energy/Suit
 g_suitCloakEnergyDrainAdjuster = ${cloakDrain}
 g_suitRecoilEnergyCost = 7
-g_suitSpeedEnergyConsumption = 110
+g_suitSpeedEnergyConsumption = ${speedEnergyConsumption}
 g_suitSpeedMult = 1.85
 
 g_suitArmorHealthValue = 100.0

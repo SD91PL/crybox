@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 const initialState = {
 	cloakDrain: 0.1,
+	speedEnergyConsumption: 110, // nowa wartość
 }
 
 export const diffFormSlice = createSlice({
@@ -11,9 +12,13 @@ export const diffFormSlice = createSlice({
 		setCloakDrain: (state, action: PayloadAction<number>) => {
 			state.cloakDrain = action.payload
 		},
+		setSpeedEnergyConsumption: (state, action: PayloadAction<number>) => {
+			state.speedEnergyConsumption = action.payload
+		},
 		resetDiffForm: () => initialState,
 	},
 })
 
-export const { setCloakDrain, resetDiffForm } = diffFormSlice.actions
+export const { setCloakDrain, setSpeedEnergyConsumption, resetDiffForm } =
+	diffFormSlice.actions
 export default diffFormSlice.reducer
