@@ -52,9 +52,9 @@ export default function DiffForm() {
 		return { label: val, value: val }
 	})
 
-	// Options for speed energy consumption (11, 33, 55, 110)
+	// Options for speed energy consumption (0, 33, 55, 110)
 	const speedEnergyOptions = [
-		{ label: 'Very Low', value: '11' },
+		{ label: 'None', value: '0' },
 		{ label: 'Low', value: '33' },
 		{ label: 'Medium', value: '55' },
 		{ label: 'High (Default)', value: '110' },
